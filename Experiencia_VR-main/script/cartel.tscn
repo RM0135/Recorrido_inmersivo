@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://bcgmsufu83mu3"]
+
+[ext_resource type="Script" uid="uid://dlo3kpxx3656t" path="res://cartel.gd" id="1_al6wg"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_tbs2k"]
+size = Vector3(0.05, 1.5, 0.8)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_mja7y"]
+radius = 2.5
+
+[node name="Cartel" type="Node3D" unique_id=1654011430]
+script = ExtResource("1_al6wg")
+
+[node name="Poste" type="MeshInstance3D" parent="." unique_id=202788506]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+mesh = SubResource("BoxMesh_tbs2k")
+
+[node name="ZonaDeteccion" type="Area3D" parent="." unique_id=60747780]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ZonaDeteccion" unique_id=1083955687]
+shape = SubResource("SphereShape3D_mja7y")
+
+[node name="PanelInfo" type="Node3D" parent="." unique_id=836389586]
+
+[node name="Label3D" type="Label3D" parent="PanelInfo" unique_id=518908389]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
+text = "Este es Ronaldo"
+font_size = 48

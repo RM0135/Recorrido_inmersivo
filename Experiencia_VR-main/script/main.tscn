@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://b6muxgulwi8i2"]
+
+[ext_resource type="Script" uid="uid://blu4bwd8x04aj" path="res://main.gd" id="1_jsuvk"]
+[ext_resource type="Texture2D" uid="uid://bryvjnr8kfkii" path="res://P001.png" id="2_oxynd"]
+[ext_resource type="Script" uid="uid://ci6x1e3op7imd" path="res://script/left_hand.gd" id="2_q4nay"]
+[ext_resource type="Script" uid="uid://83acwpfpo2ln" path="res://script/right_hand.gd" id="3_3bowm"]
+[ext_resource type="Script" uid="uid://dsk40yxwyflq8" path="res://script/desktop_camera.gd" id="3_wekt7"]
+[ext_resource type="PackedScene" uid="uid://bcgmsufu83mu3" path="res://script/cartel.tscn" id="5_3bowm"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_tbs2k"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8p3h7"]
+cull_mode = 1
+shading_mode = 0
+albedo_texture = ExtResource("2_oxynd")
+
+[sub_resource type="SphereMesh" id="SphereMesh_sa14g"]
+radius = 10.0
+height = 20.0
+
+[node name="Main" type="Node3D" unique_id=64557635]
+script = ExtResource("1_jsuvk")
+
+[node name="XROrigin3D" type="XROrigin3D" parent="." unique_id=1374302770]
+
+[node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D" unique_id=1500987194]
+
+[node name="AreaJugador" type="Area3D" parent="XROrigin3D/XRCamera3D" unique_id=895923982]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/XRCamera3D/AreaJugador" unique_id=1070854640]
+shape = SubResource("SphereShape3D_tbs2k")
+
+[node name="LeftHand" type="XRController3D" parent="XROrigin3D" unique_id=1218766183]
+tracker = &"left_hand"
+script = ExtResource("2_q4nay")
+
+[node name="RightHand" type="XRController3D" parent="XROrigin3D" unique_id=1592300037]
+tracker = &"right_hand"
+script = ExtResource("3_3bowm")
+
+[node name="Panoramica360" type="Node3D" parent="." unique_id=1067502606]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Panoramica360" unique_id=3144099]
+material_override = SubResource("StandardMaterial3D_8p3h7")
+mesh = SubResource("SphereMesh_sa14g")
+
+[node name="Cartel" parent="Panoramica360" unique_id=1654011430 instance=ExtResource("5_3bowm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -2)
+
+[node name="DesktopCamera" type="Camera3D" parent="." unique_id=735322441]
+current = true
+script = ExtResource("3_wekt7")
