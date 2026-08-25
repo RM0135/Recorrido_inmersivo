@@ -40,12 +40,12 @@ script = ExtResource("3_3bowm")
 
 [node name="Panoramica360" type="Node3D" parent="." unique_id=1067502606]
 
+[node name="Cartel" parent="Panoramica360" unique_id=1654011430 instance=ExtResource("5_3bowm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 1, -4)
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Panoramica360" unique_id=3144099]
 material_override = SubResource("StandardMaterial3D_8p3h7")
 mesh = SubResource("SphereMesh_sa14g")
-
-[node name="Cartel" parent="Panoramica360" unique_id=1654011430 instance=ExtResource("5_3bowm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -2)
 
 [node name="DesktopCamera" type="Camera3D" parent="." unique_id=735322441]
 current = true
