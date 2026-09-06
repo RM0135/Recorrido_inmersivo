@@ -15,8 +15,8 @@ shading_mode = 0
 albedo_texture = ExtResource("2_oxynd")
 
 [sub_resource type="SphereMesh" id="SphereMesh_sa14g"]
-radius = 10.0
-height = 20.0
+radius = 25.891
+height = 54.496
 
 [node name="Main" type="Node3D" unique_id=64557635]
 script = ExtResource("1_jsuvk")
@@ -41,9 +41,19 @@ script = ExtResource("3_3bowm")
 [node name="Panoramica360" type="Node3D" parent="." unique_id=1067502606]
 
 [node name="Cartel" parent="Panoramica360" unique_id=1654011430 instance=ExtResource("5_3bowm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 1, -4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 8, -25)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Panoramica360" unique_id=3144099]
+material_override = SubResource("StandardMaterial3D_8p3h7")
+mesh = SubResource("SphereMesh_sa14g")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Panoramica360" unique_id=1607229731]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.594307, -2.4546223, -27.031929)
+material_override = SubResource("StandardMaterial3D_8p3h7")
+mesh = SubResource("SphereMesh_sa14g")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Panoramica360" unique_id=476002234]
+transform = Transform3D(0.9999044, 0.013821167, 0.00043696954, -0.013824985, 0.9998496, 0.0104695875, -0.00029220854, -0.010474628, 0.9999451, 83.18106, -6.8734703, -58.994293)
 material_override = SubResource("StandardMaterial3D_8p3h7")
 mesh = SubResource("SphereMesh_sa14g")
 

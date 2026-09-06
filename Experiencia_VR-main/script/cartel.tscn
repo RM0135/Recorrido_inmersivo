@@ -1,28 +1,72 @@
 [gd_scene format=3 uid="uid://bcgmsufu83mu3"]
 
 [ext_resource type="Script" uid="uid://dlo3kpxx3656t" path="res://cartel.gd" id="1_al6wg"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_tbs2k"]
-size = Vector3(0.05, 1.5, 0.8)
+[ext_resource type="Script" uid="uid://cxrqyax6yhg6e" path="res://script/marcador.gd" id="2_q0uiq"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_mja7y"]
 radius = 2.5
 
-[node name="Cartel" type="Node3D" unique_id=1654011430]
-script = ExtResource("1_al6wg")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mja7y"]
+emission_enabled = true
+emission = Color(0, 0.8666667, 0.043137256, 1)
+emission_energy_multiplier = 2.0
 
-[node name="Poste" type="MeshInstance3D" parent="." unique_id=202788506]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
-mesh = SubResource("BoxMesh_tbs2k")
+[sub_resource type="SphereMesh" id="SphereMesh_lkm71"]
+material = SubResource("StandardMaterial3D_mja7y")
+radius = 0.12
+height = 0.24
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_q0uiq"]
+load_path = "res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex"
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_p4kmu"]
+viewport_path = NodePath("PanelInfo/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p4kmu"]
+resource_local_to_scene = true
+transparency = 1
+albedo_texture = SubResource("ViewportTexture_p4kmu")
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_tbs2k"]
+material = SubResource("StandardMaterial3D_p4kmu")
+size = Vector2(1.2, 0.9)
+
+[node name="PuntoInteres" type="Node3D" unique_id=1654011430]
+script = ExtResource("1_al6wg")
 
 [node name="ZonaDeteccion" type="Area3D" parent="." unique_id=60747780]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ZonaDeteccion" unique_id=1083955687]
 shape = SubResource("SphereShape3D_mja7y")
 
+[node name="Marcador" type="MeshInstance3D" parent="." unique_id=1649542332]
+mesh = SubResource("SphereMesh_lkm71")
+script = ExtResource("2_q0uiq")
+
 [node name="PanelInfo" type="Node3D" parent="." unique_id=836389586]
 
-[node name="Label3D" type="Label3D" parent="PanelInfo" unique_id=518908389]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
-text = "Este es Ronaldo"
-font_size = 48
+[node name="SubViewport" type="SubViewport" parent="PanelInfo" unique_id=763713961]
+transparent_bg = true
+render_target_update_mode = 4
+
+[node name="Control" type="Control" parent="PanelInfo/SubViewport" unique_id=338084662]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 512.0
+offset_bottom = 384.0
+
+[node name="TextureRect" type="TextureRect" parent="PanelInfo/SubViewport/Control" unique_id=1973022038]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = SubResource("CompressedTexture2D_q0uiq")
+
+[node name="Label" type="Label" parent="PanelInfo/SubViewport/Control" unique_id=65235291]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Hola, soy goku"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PanelInfo" unique_id=1299125663]
+mesh = SubResource("QuadMesh_tbs2k")

@@ -20,5 +20,5 @@ func _physics_process(delta: float) -> void:
 	forward = forward.normalized()
 	right = right.normalized()
 
-	var direccion: Vector3 = (forward * -input_vector.y) + (right * input_vector.x)
+	var direccion: Vector3 = (forward * input_vector.y) + (right * input_vector.x)
 	xr_origin.global_position += direccion * velocidad * delta
