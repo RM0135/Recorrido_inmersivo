@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recorrido Virtual 360° — Ciénaga de Mallorquín & Guía de Godot</title>
+
+  <!-- Bootstrap 5 CSS CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Bootstrap Icons CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Three.js CDN for 360 WebGL Viewer -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <!-- Custom Application Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/slides.css">
+</head>
+<body>
+
+  <div class="app-container">
+    <!-- Ambient Background Glows -->
+    <div class="bg-glow-1"></div>
+    <div class="bg-glow-2"></div>
+
+    <!-- Header Navbar -->
+    <header class="app-header">
+      <div class="brand-title">
+        <img src="assets/icon.svg" alt="Godot Logo" class="brand-icon">
+        <span>Recorrido Inmersivo 360°</span>
+        <span class="brand-tag"><i class="bi bi-geo-alt-fill me-1"></i>Ciénaga de Mallorquín</span>
+      </div>
+
+      <div class="header-controls">
+        <span class="audio-badge" id="audio-status-badge">
+          <i class="bi bi-volume-up-fill me-1"></i> Audio Listo
+        </span>
+        <button class="btn-icon" title="Reproducir Audio Español (Tecla 1)" onclick="window.slidesApp.playAudio('es')">
+          🇪🇸
+        </button>
+        <button class="btn-icon" title="Play English Audio (Tecla 2)" onclick="window.slidesApp.playAudio('en')">
+          🇺🇸
+        </button>
+        <button class="btn-icon" title="Vista Cuadrícula (G)" onclick="window.slidesApp.toggleGrid()">
+          <i class="bi bi-grid-3x3-gap-fill"></i>
+        </button>
+        <button class="btn-icon" title="Notas del Orador (N)" onclick="window.slidesApp.toggleNotes()">
+          <i class="bi bi-journal-text"></i>
+        </button>
+        <button class="btn-icon" title="Pantalla Completa (F)" onclick="window.slidesApp.toggleFullscreen()">
+          <i class="bi bi-fullscreen"></i>
+        </button>
+      </div>
+    </header>
+
+    <!-- Slides Viewport -->
+    <main class="slides-viewport">
+      <div class="slide-deck" id="slide-deck">
+        <!-- Slides dynamically rendered from js/data.js -->
+      </div>
+    </main>
+
+    <!-- Footer Controls & Progress -->
+    <footer class="app-footer">
+      <div class="progress-container">
+        <div class="progress-bar" id="progress-bar"></div>
+      </div>
+
+      <div class="nav-controls">
+        <button class="btn-nav" id="btn-prev" onclick="window.slidesApp.prevSlide()">
+          <i class="bi bi-chevron-left me-1"></i> Anterior
+        </button>
+        <div class="slide-counter">
+          <span id="current-slide-num">1</span> / <span id="total-slide-num">14</span>
+        </div>
+        <button class="btn-nav" id="btn-next" onclick="window.slidesApp.nextSlide()">
+          Siguiente <i class="bi bi-chevron-right ms-1"></i>
+        </button>
+      </div>
+
+      <div class="shortcut-hints">
+        <span>Navegar: <span class="key-badge">←</span> <span class="key-badge">→</span> <span class="key-badge">Espacio</span></span>
+        <span>Audio: <span class="key-badge">1 (ES)</span> <span class="key-badge">2 (EN)</span></span>
+        <span>Cuadrícula: <span class="key-badge">G</span></span>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Modal: Grid Overview -->
+  <div class="modal-overlay" id="modal-grid">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3><i class="bi bi-grid-3x3-gap-fill me-2 text-cyan"></i> Vista General de Diapositivas</h3>
+        <button class="modal-close" onclick="window.slidesApp.toggleGrid()"><i class="bi bi-x-lg"></i></button>
+      </div>
+      <div class="modal-body">
+        <div class="grid-container" id="grid-items-container"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Speaker Notes -->
+  <div class="modal-overlay" id="modal-notes">
+    <div class="modal-card" style="max-width: 650px;">
+      <div class="modal-header">
+        <h3><i class="bi bi-journal-text me-2 text-cyan"></i> Guía Explicativa del Orador</h3>
+        <button class="modal-close" onclick="window.slidesApp.toggleNotes()"><i class="bi bi-x-lg"></i></button>
+      </div>
+      <div class="modal-body" id="notes-content">
+        <!-- Dynamically updated -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap 5 JS Bundle CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Application Logic Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/viewer360.js"></script>
+  <script src="js/quiz.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>
