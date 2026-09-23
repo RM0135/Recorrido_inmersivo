@@ -200,7 +200,7 @@ const SLIDES_DATA = [
         </div>
 
         <div class="card-glass flex-col" style="align-items: center; text-align: center; justify-content: center; gap: 20px;">
-          <img src="assets/icon.svg" alt="Godot Logo" style="width: 110px; height: 110px; filter: drop-shadow(0 0 20px rgba(71, 140, 191, 0.5));">
+          <img src="slides/assets/icon.svg" alt="Godot Logo" style="width: 110px; height: 110px; filter: drop-shadow(0 0 20px rgba(71, 140, 191, 0.5));">
           <div style="font-family: var(--font-heading); font-size: 1.6rem; font-weight: 800;">Godot Engine 4.7</div>
           <div class="grid-2col" style="width: 100%; gap: 10px;">
             <div class="stat-card">
@@ -464,7 +464,7 @@ const SLIDES_DATA = [
     `
   },
 
-  // SLIDE 10 - META QUEST 3S CONTROLLERS MAPPING (DETAILED REQUESTED SLIDE)
+  // SLIDE 10 - META QUEST 3S CONTROLLERS MAPPING
   {
     id: 10,
     category: "Módulo 3: Arquitectura Técnica VR",
@@ -478,10 +478,10 @@ const SLIDES_DATA = [
         <div class="flex-col" style="gap: 12px;">
           <!-- Left Controller Card -->
           <div class="card-glass accent-border p-3">
-            <h4 class="text-cyan font-bold mb-2 style="font-size: 1.05rem;">
+            <h4 class="text-cyan font-bold mb-2" style="font-size: 1.05rem;">
               <i class="bi bi-controller me-1"></i> Mando Izquierdo (LeftHand)
             </h4>
-            <table class="table table-dark table-borderless table-sm mb-0 style="font-size: 0.8rem; color: #cbd5e1;">
+            <table class="table table-dark table-borderless table-sm mb-0" style="font-size: 0.8rem; color: #cbd5e1;">
               <thead>
                 <tr class="text-muted border-bottom border-secondary">
                   <th>Control</th>
@@ -494,11 +494,11 @@ const SLIDES_DATA = [
                   <td>Mover al jugador libremente dentro de la esfera actual</td>
                 </tr>
                 <tr>
-                  <td><strong class="text-cyan">Botón X</strong> <span class="badge bg-secondary style="font-size:0.65rem;">ax_button</span></td>
+                  <td><strong class="text-cyan">Botón X</strong> <span class="badge bg-secondary" style="font-size:0.65rem;">ax_button</span></td>
                   <td>Avanzar al siguiente punto (teletransporte con fade)</td>
                 </tr>
                 <tr>
-                  <td><strong class="text-cyan">Botón Y</strong> <span class="badge bg-secondary style="font-size:0.65rem;">by_button</span></td>
+                  <td><strong class="text-cyan">Botón Y</strong> <span class="badge bg-secondary" style="font-size:0.65rem;">by_button</span></td>
                   <td>Retroceder al punto anterior (teletransporte con fade)</td>
                 </tr>
               </tbody>
@@ -507,10 +507,10 @@ const SLIDES_DATA = [
 
           <!-- Right Controller Card -->
           <div class="card-glass purple-border p-3">
-            <h4 class="text-purple font-bold mb-2 style="font-size: 1.05rem;">
+            <h4 class="text-purple font-bold mb-2" style="font-size: 1.05rem;">
               <i class="bi bi-controller me-1"></i> Mando Derecho (RightHand)
             </h4>
-            <table class="table table-dark table-borderless table-sm mb-0 style="font-size: 0.8rem; color: #cbd5e1;">
+            <table class="table table-dark table-borderless table-sm mb-0" style="font-size: 0.8rem; color: #cbd5e1;">
               <thead>
                 <tr class="text-muted border-bottom border-secondary">
                   <th>Control</th>
@@ -523,15 +523,15 @@ const SLIDES_DATA = [
                   <td>Giro por saltos — <em>snap turn</em> de 45° (izq/der)</td>
                 </tr>
                 <tr>
-                  <td><strong class="text-purple">Botón A</strong> <span class="badge bg-secondary style="font-size:0.65rem;">ax_button</span></td>
+                  <td><strong class="text-purple">Botón A</strong> <span class="badge bg-secondary" style="font-size:0.65rem;">ax_button</span></td>
                   <td>Mostrar cartel de información del punto más cercano</td>
                 </tr>
                 <tr>
-                  <td><strong class="text-purple">Botón B</strong> <span class="badge bg-secondary style="font-size:0.65rem;">by_button</span></td>
+                  <td><strong class="text-purple">Botón B</strong> <span class="badge bg-secondary" style="font-size:0.65rem;">by_button</span></td>
                   <td>Ocultar el cartel de información</td>
                 </tr>
                 <tr>
-                  <td><strong class="text-amber">Click Joystick</strong> <span class="badge bg-warning text-dark style="font-size:0.65rem;">primary_click</span></td>
+                  <td><strong class="text-amber">Click Joystick</strong> <span class="badge bg-warning text-dark" style="font-size:0.65rem;">primary_click</span></td>
                   <td>Alternar idioma de narración (Español ↔️ Inglés)</td>
                 </tr>
               </tbody>
@@ -542,7 +542,7 @@ const SLIDES_DATA = [
         <div class="flex-col" style="gap: 12px;">
           <!-- Controller Image Card -->
           <div class="card-glass p-2 text-center" style="background: rgba(0,0,0,0.5);">
-            <img src="assets/meta_quest_3s_controllers.png" alt="Meta Quest 3S Controllers Layout" style="width: 100%; max-height: 240px; object-fit: contain; border-radius: 8px;">
+            <img src="slides/assets/meta_quest_3s_controllers.png" alt="Meta Quest 3S Controllers Layout" style="width: 100%; max-height: 240px; object-fit: contain; border-radius: 8px;">
             <span class="small text-muted mt-1 d-block"><i class="bi bi-vr me-1"></i> Mandos Touch Plus — Meta Quest 3S</span>
           </div>
 
