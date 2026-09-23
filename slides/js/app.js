@@ -1,6 +1,6 @@
 /**
  * Main Web Slides Application Controller
- * Handles slide navigation, UI state, modals, keyboard/touch bindings
+ * Handles slide navigation, UI state, modals, keyboard/touch bindings, and audio narrations
  */
 
 class SlidesApp {
@@ -17,6 +17,7 @@ class SlidesApp {
     this.viewer360Instance = null;
     this.quizInstance = null;
     this.touchStartX = 0;
+    this.currentAudioLang = "es";
 
     this.gridModal = document.getElementById("modal-grid");
     this.notesModal = document.getElementById("modal-notes");
@@ -42,9 +43,19 @@ class SlidesApp {
     this.deckEl.innerHTML = SLIDES_DATA.map((slide, idx) => `
       <div class="slide ${idx === 0 ? 'active' : ''}" id="slide-${idx}">
         <div class="slide-header">
-          <div class="slide-category">
-            <i class="bi bi-bookmark-fill me-1"></i>
-            <span>${slide.category}</span>
+          <div class="d-flex justify-content-between align-items-center mb-1">
+            <div class="slide-category">
+              <i class="bi bi-bookmark-fill me-1"></i>
+              <span>${slide.category}</span>
+            </div>
+            <div class="audio-quick-controls">
+              <button class="btn btn-sm btn-outline-info py-0 px-2 me-1" onclick="window.slidesApp.playAudio('es')" title="Audio en Español">
+                <i class="bi bi-volume-up-fill me-1"></i> ES 🇪🇸
+              </button>
+              <button class="btn btn-sm btn-outline-warning py-0 px-2" onclick="window.slidesApp.playAudio('en')" title="Audio in English">
+                <i class="bi bi-volume-up-fill me-1"></i> EN 🇺🇸
+              </button>
+            </div>
           </div>
           <h2 class="slide-title">${slide.title}</h2>
           <p class="slide-subtitle">${slide.subtitle}</p>
@@ -58,6 +69,9 @@ class SlidesApp {
 
   showSlide(index) {
     if (index < 0 || index >= this.totalSlides) return;
+
+    // Stop current speech if any
+    if (window.speechSynthesis) window.speechSynthesis.cancel();
 
     const currentSlideEl = document.getElementById(`slide-${this.currentIndex}`);
     const nextSlideEl = document.getElementById(`slide-${index}`);
@@ -99,6 +113,44 @@ class SlidesApp {
     this.progressBar.style.width = `${pct}%`;
   }
 
+  playAudio(lang = 'es') {
+    if (!('speechSynthesis' in window)) {
+      alert("Tu navegador no soporta síntesis de voz Web Speech.");
+      return;
+    }
+
+    const slide = SLIDES_DATA[this.currentIndex];
+    const text = lang === 'en' ? (slide.audioEN || slide.title) : (slide.audioES || slide.title);
+
+    window.speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = lang === 'en' ? 'en-US' : 'es-ES';
+    utterance.rate = 1.0;
+    utterance.pitch = 1.0;
+
+    const statusBadge = document.getElementById("audio-status-badge");
+    if (statusBadge) {
+      statusBadge.innerHTML = `<i class="bi bi-soundwave text-cyan me-1"></i> ${lang === 'en' ? 'Speaking EN 🇺🇸...' : 'Hablando ES 🇪🇸...'}`;
+      statusBadge.classList.add("playing");
+    }
+
+    utterance.onend = () => {
+      if (statusBadge) {
+        statusBadge.innerHTML = `<i class="bi bi-volume-up-fill me-1"></i> Audio Listo`;
+        statusBadge.classList.remove("playing");
+      }
+    };
+
+    utterance.onerror = () => {
+      if (statusBadge) {
+        statusBadge.innerHTML = `<i class="bi bi-volume-mute me-1"></i> Audio Listo`;
+        statusBadge.classList.remove("playing");
+      }
+    };
+
+    window.speechSynthesis.speak(utterance);
+  }
+
   onSlideChange(index) {
     const slide = SLIDES_DATA[index];
 
@@ -128,7 +180,12 @@ class SlidesApp {
         <div style="font-family: var(--font-heading); font-size: 1.1rem; color: var(--accent-cyan); margin-bottom: 8px;">
           <i class="bi bi-journal-text me-1"></i> Guía del Orador - Diapositiva ${index + 1}: ${slide.title}
         </div>
-        <p style="font-size: 1rem; color: #cbd5e1; line-height: 1.6;">${slide.speakerNotes}</p>
+        <p style="font-size: 1rem; color: #cbd5e1; line-height: 1.6; margin-bottom: 12px;">${slide.speakerNotes}</p>
+        <div class="p-2 rounded" style="background: rgba(0,242,254,0.08); border: 1px solid var(--border-glass);">
+          <strong class="text-cyan"><i class="bi bi-volume-up-fill me-1"></i> Audio Narration Text:</strong>
+          <p class="mb-1 mt-1 small" style="color: #94a3b8;"><strong>ES 🇪🇸:</strong> ${slide.audioES}</p>
+          <p class="mb-0 small" style="color: #94a3b8;"><strong>EN 🇺🇸:</strong> ${slide.audioEN}</p>
+        </div>
       `;
     }
   }
@@ -191,6 +248,12 @@ class SlidesApp {
           break;
         case "End":
           this.showSlide(this.totalSlides - 1);
+          break;
+        case "1":
+          this.playAudio('es');
+          break;
+        case "2":
+          this.playAudio('en');
           break;
         case "g":
         case "G":

@@ -39,6 +39,15 @@
       </div>
 
       <div class="header-controls">
+        <span class="audio-badge" id="audio-status-badge">
+          <i class="bi bi-volume-up-fill me-1"></i> Audio Listo
+        </span>
+        <button class="btn-icon" title="Reproducir Audio Español (Tecla 1)" onclick="window.slidesApp.playAudio('es')">
+          🇪🇸
+        </button>
+        <button class="btn-icon" title="Play English Audio (Tecla 2)" onclick="window.slidesApp.playAudio('en')">
+          🇺🇸
+        </button>
         <button class="btn-icon" title="Vista Cuadrícula (G)" onclick="window.slidesApp.toggleGrid()">
           <i class="bi bi-grid-3x3-gap-fill"></i>
         </button>
@@ -78,8 +87,8 @@
 
       <div class="shortcut-hints">
         <span>Navegar: <span class="key-badge">←</span> <span class="key-badge">→</span> <span class="key-badge">Espacio</span></span>
+        <span>Audio: <span class="key-badge">1 (ES)</span> <span class="key-badge">2 (EN)</span></span>
         <span>Cuadrícula: <span class="key-badge">G</span></span>
-        <span>Orador: <span class="key-badge">N</span></span>
       </div>
     </footer>
   </div>

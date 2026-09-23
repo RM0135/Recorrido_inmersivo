@@ -142,7 +142,27 @@ body, html {
 .header-controls {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
+}
+
+.audio-badge {
+  font-size: 0.78rem;
+  padding: 4px 10px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text-muted);
+  border: 1px solid var(--border-glass);
+  font-family: var(--font-code);
+  transition: var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+}
+
+.audio-badge.playing {
+  background: rgba(0, 242, 254, 0.15);
+  color: var(--accent-cyan);
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 12px rgba(0, 242, 254, 0.4);
 }
 
 .btn-icon {
@@ -324,7 +344,6 @@ body, html {
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--accent-cyan);
-  margin-bottom: 8px;
 }
 
 .slide-title {
