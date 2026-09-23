@@ -8,7 +8,7 @@ const GLOSSARY_DATA = {
   "Godot Engine": "Motor gráfico de código abierto y gratuito utilizado para crear videojuegos y experiencias 3D/VR.",
   "OpenXR": "Estándar internacional que permite que una aplicación VR funcione en Meta Quest, Pico o HTC Vive sin cambiar el código.",
   "GDScript": "Lenguaje de programación propio de Godot, sencillo, veloz y muy parecido a Python.",
-  "Meta Quest": "Visor de realidad virtual autónomo de la empresa Meta que no requiere cables ni computadora para funcionar.",
+  "Meta Quest 3S": "Visor autónomo de realidad virtual de última generación con mandos Touch Plus.",
   "AudioStreamPlayer3D": "Nodo de Godot utilizado para reproducir narraciones de audio posicional en 3D (Español e Inglés).",
   "Sideload": "Instalar una aplicación directamente en un dispositivo (como Meta Quest) usando un cable USB sin pasar por la tienda oficial.",
   "Snap Turning": "Mecanismo de seguridad VR que gira la cámara en saltos de 45° en lugar de un movimiento continuo para evitar el mareo por movimiento."
@@ -23,17 +23,17 @@ const SLIDES_DATA = [
     subtitle: "Exploración de la Ciénaga de Mallorquín con Realidad Virtual y Audio Bilingüe",
     audioES: "Bienvenidos al recorrido virtual inmersivo de la Ciénaga de Mallorquín en Barranquilla, desarrollado en Realidad Virtual con Godot Engine y audio narrado en español e inglés.",
     audioEN: "Welcome to the immersive virtual tour of the Cienaga de Mallorquin in Barranquilla, developed in Virtual Reality with Godot Engine and narrated audio in Spanish and English.",
-    speakerNotes: "¡Bienvenidos a la presentación! Esta guía está diseñada para explicar cómo creamos un recorrido virtual inmersivo por un ecosistema natural con audio guías bilingües (español e inglés) y la potencia de Godot Engine.",
+    speakerNotes: "¡Bienvenidos a la presentación! Esta guía está diseñada para explicar cómo creamos un recorrido virtual inmersivo por un ecosistema natural con mandos Meta Quest 3S, audio guías bilingües y la potencia de Godot Engine.",
     bodyHTML: `
       <div class="hero-slide">
         <div class="hero-badge-group">
           <span class="hero-badge nature"><i class="bi bi-tree-fill me-1"></i> Ciénaga de Mallorquín</span>
           <span class="hero-badge godot"><i class="bi bi-cpu-fill me-1"></i> Godot Engine 4.7</span>
-          <span class="hero-badge"><i class="bi bi-volume-up-fill me-1"></i> Audio ES / EN</span>
+          <span class="hero-badge"><i class="bi bi-vr me-1"></i> Meta Quest 3S</span>
         </div>
-        <h1 class="hero-title">Explora la Naturaleza con <span class="gradient-text">Realidad Virtual y Audio Bilingüe</span></h1>
+        <h1 class="hero-title">Explora la Naturaleza con <span class="gradient-text">Realidad Virtual y Mandos Quest 3S</span></h1>
         <p class="hero-description">
-          Descubre cómo transformamos fotografías panorámicas 360° en un paseo virtual inmersivo para la Ciénaga de Mallorquín, con audios explicativos en español e inglés.
+          Descubre cómo transformamos fotografías panorámicas 360° en un paseo virtual inmersivo para la Ciénaga de Mallorquín con interacción directa de mandos Touch Plus y sonido bilingüe.
         </p>
 
         <div class="audio-narration-box mb-4">
@@ -94,8 +94,8 @@ const SLIDES_DATA = [
             <div class="stat-label">Audio bilingüe (Español & English)</div>
           </div>
           <div class="stat-card">
-            <div class="stat-number"><i class="bi bi-vr"></i> VR</div>
-            <div class="stat-label">Inmersión con Meta Quest</div>
+            <div class="stat-number"><i class="bi bi-vr"></i> Quest 3S</div>
+            <div class="stat-label">Mandos Touch Plus</div>
           </div>
         </div>
       </div>
@@ -110,7 +110,7 @@ const SLIDES_DATA = [
     subtitle: "Navegación paso a paso acompañada de audios explicativos",
     audioES: "El usuario avanza secuencialmente por la ruta virtual mientras escucha audios informativos en español o inglés sobre el manglar.",
     audioEN: "The user advances sequentially through the virtual path while listening to informative audio guides in Spanish or English about the mangrove.",
-    speakerNotes: "El usuario avanza secuencialmente entre puntos panorámicos. En lugar de carteles molestos, escucha una narración fluida en su idioma de preferencia (español o inglés).",
+    speakerNotes: "El usuario avanza secuencialmente entre puntos panorámicos usando los mandos de Meta Quest 3S.",
     bodyHTML: `
       <div class="flex-col" style="gap: 20px;">
         <p style="font-size: 1.05rem; color: var(--text-muted);">
@@ -151,9 +151,9 @@ const SLIDES_DATA = [
             </p>
           </div>
           <div class="card-glass">
-            <strong style="color: var(--accent-emerald);"><i class="bi bi-fast-forward-fill me-1"></i> Avanzar / Retroceder</strong>
+            <strong style="color: var(--accent-emerald);"><i class="bi bi-fast-forward-fill me-1"></i> Mandos Touch Plus</strong>
             <p style="font-size: 0.88rem; color: var(--text-muted); margin-top: 6px;">
-              Usa los botones del mando (A/X) para trasladarte entre panoramas del trayecto.
+              Usa los botones X/Y del mando izquierdo para avanzar o retroceder de punto.
             </p>
           </div>
           <div class="card-glass">
@@ -194,7 +194,7 @@ const SLIDES_DATA = [
           <div class="card-glass purple-border">
             <h3 style="color: var(--accent-purple); margin-bottom: 8px;"><i class="bi bi-lightning-charge-fill me-2"></i> Ligero y Versátil</h3>
             <p style="font-size: 0.92rem; color: var(--text-muted);">
-              Pesa menos de 100 MB y permite exportar rápidamente a computadoras y visores Meta Quest.
+              Pesa menos de 100 MB y permite exportar rápidamente a computadoras y visores Meta Quest 3S.
             </p>
           </div>
         </div>
@@ -268,7 +268,7 @@ const SLIDES_DATA = [
           </div>
           <div class="node-item node-indent-2">
             <i class="bi bi-camera-video-fill me-1"></i> <span class="node-type">XRCamera3D</span>
-            <span class="node-desc">Lentes Quest</span>
+            <span class="node-desc">Lentes Quest 3S</span>
           </div>
         </div>
       </div>
@@ -297,7 +297,7 @@ const SLIDES_DATA = [
             </li>
             <li>
               <span class="feature-bullet">2</span>
-              <span><strong>Conmutación de Idioma:</strong> Cambia de voz instantáneamente al presionar un botón.</span>
+              <span><strong>Conmutación de Idioma:</strong> Cambia de voz instantáneamente al hacer clic en el joystick derecho.</span>
             </li>
             <li>
               <span class="feature-bullet">3</span>
@@ -321,11 +321,14 @@ const SLIDES_DATA = [
 <span class="kw">@onready var</span> audio_player = <span class="type">$AudioStreamPlayer3D</span>
 <span class="kw">var</span> current_lang: String = <span class="str">"es"</span>
 
+<span class="kw">func</span> <span class="func">toggle_language</span>():
+    current_lang = <span class="str">"en"</span> <span class="kw">if</span> current_lang == <span class="str">"es"</span> <span class="kw">else</span> <span class="str">"es"</span>
+    <span class="func">print</span>(<span class="str">"Idioma cambiado a: "</span>, current_lang)
+
 <span class="kw">func</span> <span class="func">play_narration</span>(point_id: String):
     <span class="kw">var</span> path = <span class="str">"res://audio/"</span> + current_lang + <span class="str">"/"</span> + point_id + <span class="str">".ogg"</span>
     audio_player.stream = <span class="func">load</span>(path)
     audio_player.<span class="func">play</span>()
-    <span class="func">print</span>(<span class="str">"Reproduciendo audio: "</span>, path)
           </div>
         </div>
       </div>
@@ -338,8 +341,8 @@ const SLIDES_DATA = [
     category: "Módulo 2: ¿Qué es Godot Engine?",
     title: "¿Cómo Dibuja la Pantalla? (Renderers)",
     subtitle: "Rendimiento optimizado para combinar gráficos fluido y sonido",
-    audioES: "Godot 4 ofrece tres modos de renderizado para garantizar fluidez visual y baja latencia de sonido en las gafas Meta Quest.",
-    audioEN: "Godot 4 offers three rendering modes ensuring smooth visual performance and low latency audio in Meta Quest.",
+    audioES: "Godot 4 ofrece tres modos de renderizado para garantizar fluidez visual y baja latencia de sonido en las gafas Meta Quest 3S.",
+    audioEN: "Godot 4 offers three rendering modes ensuring smooth visual performance and low latency audio in Meta Quest 3S.",
     speakerNotes: "Los 3 modos de renderizado de Godot 4 permiten adaptar el rendimiento visual manteniendo la reproducción de audio en tiempo real.",
     bodyHTML: `
       <div class="grid-3col">
@@ -355,7 +358,7 @@ const SLIDES_DATA = [
         <div class="card-glass flex-col" style="border-color: var(--accent-emerald);">
           <div class="icon-box emerald"><i class="bi bi-vr"></i></div>
           <strong style="font-size: 1.1rem; color: var(--accent-emerald);">Mobile (Vulkan)</strong>
-          <span style="font-size: 0.75rem; color: var(--accent-emerald); font-weight: 700;">RECOMENDADO QUEST 3</span>
+          <span style="font-size: 0.75rem; color: var(--accent-emerald); font-weight: 700;">RECOMENDADO QUEST 3S</span>
           <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 8px;">
             Optimizado para chips móviles. Alto rendimiento, sonido sin lag y bajo consumo de batería.
           </p>
@@ -423,10 +426,10 @@ const SLIDES_DATA = [
     id: 9,
     category: "Módulo 3: Arquitectura Técnica VR",
     title: "OpenXR: El Conector Universal de VR",
-    subtitle: "Integración perfecta de controles y reproducción de sonido",
-    audioES: "OpenXR garantiza que los comandos de avanzar, retroceder y cambiar de idioma funcionen en cualquier visor de Realidad Virtual.",
-    audioEN: "OpenXR ensures that forward, backward, and audio language commands work seamlessly on any VR headset.",
-    speakerNotes: "OpenXR conecta el motor Godot con las gafas Meta Quest garantizando compatibilidad universal y respuesta inmediata.",
+    subtitle: "Integración perfecta de mandos Meta Quest 3S y reproducción de sonido",
+    audioES: "OpenXR garantiza que los comandos de los mandos Meta Quest 3S y el cambio de idioma funcionen en cualquier visor de Realidad Virtual.",
+    audioEN: "OpenXR ensures Meta Quest 3S controller bindings and language switching work seamlessly on any VR headset.",
+    speakerNotes: "OpenXR conecta el motor Godot con las gafas Meta Quest 3S garantizando compatibilidad universal y respuesta inmediata.",
     bodyHTML: `
       <div class="grid-2col">
         <div class="flex-col">
@@ -436,7 +439,7 @@ const SLIDES_DATA = [
           <div class="card-glass purple-border">
             <strong style="color: var(--accent-purple);"><i class="bi bi-map-fill me-1"></i> Mapa de Acciones (Action Map)</strong>
             <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 6px;">
-              Traduce los botones del mando para cambiar de panorama y alternar el audio entre español e inglés.
+              Mapeo de botones Touch Plus (A, B, X, Y, Joysticks) traducidos de forma limpia y transparente.
             </p>
           </div>
           <div class="card-glass accent-border">
@@ -451,7 +454,7 @@ const SLIDES_DATA = [
           <div style="font-size: 3rem; margin-bottom: 10px; color: var(--accent-cyan);"><i class="bi bi-plug-fill"></i></div>
           <h3 style="font-family: var(--font-heading); font-size: 1.3rem;">Estándar OpenXR 1.1</h3>
           <div style="margin: 16px 0; font-family: var(--font-code); font-size: 0.85rem; color: var(--accent-cyan);">
-            Godot 4.7 ➔ Plugin OpenXR ➔ Meta Quest APK
+            Godot 4.7 ➔ Plugin OpenXR ➔ Meta Quest 3S APK
           </div>
           <p style="font-size: 0.85rem; color: var(--text-muted); max-width: 320px;">
             Garantiza baja latencia visual y auditiva sin interrupciones.
@@ -461,39 +464,108 @@ const SLIDES_DATA = [
     `
   },
 
-  // SLIDE 10
+  // SLIDE 10 - META QUEST 3S CONTROLLERS MAPPING (DETAILED REQUESTED SLIDE)
   {
     id: 10,
     category: "Módulo 3: Arquitectura Técnica VR",
-    title: "Controles e Interacción en VR",
-    subtitle: "Audios bilingües y rotación confortable para evitar el mareo",
-    audioES: "Para máxima comodidad, combinamos giros por ángulos de 45 grados con locuciones de audio narradas en español e inglés.",
-    audioEN: "For maximum comfort, we combine 45 degree snap turning with narrated audio guides in Spanish and English.",
-    speakerNotes: "Remoción de carteles visuales sustituidos por audios bilingües que no ensucian el paisaje panorámico 360°.",
+    title: "Mapeo de Mandos Meta Quest 3S",
+    subtitle: "Distribución de controles de interacción en los controladores Touch Plus",
+    audioES: "En el mando izquierdo, el joystick mueve al jugador y las teclas X e Y cambian de punto con fundido. En el mando derecho, el joystick gira la vista a 45 grados, A y B controlan los carteles de información, y el click del stick alterna el idioma entre español e inglés.",
+    audioEN: "On the left controller, the thumbstick moves the player and X and Y buttons change points with fade. On the right controller, the thumbstick snap turns 45 degrees, A and B control info panels, and clicking the stick toggles audio language between Spanish and English.",
+    speakerNotes: "Asignación completa de botones en los mandos Touch Plus de Meta Quest 3S: Joystick Izquierdo para movimiento, X/Y avanzar/retroceder. Joystick Derecho para Snap Turn 45°, A/B carteles de información, y Click del Stick Derecho para cambiar de idioma de voz (ES/EN).",
     bodyHTML: `
-      <div class="grid-3col">
-        <div class="card-glass flex-col">
-          <div class="icon-box cyan"><i class="bi bi-arrow-repeat"></i></div>
-          <strong style="color: var(--accent-cyan); font-size: 1.05rem;">Snap Turning (45°)</strong>
-          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 6px;">
-            Giros instantáneos en ángulos fijos de 45° con el thumbstick derecho para evitar mareos en VR.
-          </p>
+      <div class="grid-2col" style="grid-template-columns: 1fr 1.3fr; gap: 20px;">
+        <div class="flex-col" style="gap: 12px;">
+          <!-- Left Controller Card -->
+          <div class="card-glass accent-border p-3">
+            <h4 class="text-cyan font-bold mb-2 style="font-size: 1.05rem;">
+              <i class="bi bi-controller me-1"></i> Mando Izquierdo (LeftHand)
+            </h4>
+            <table class="table table-dark table-borderless table-sm mb-0 style="font-size: 0.8rem; color: #cbd5e1;">
+              <thead>
+                <tr class="text-muted border-bottom border-secondary">
+                  <th>Control</th>
+                  <th>Función</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong class="text-white">Joystick</strong></td>
+                  <td>Mover al jugador libremente dentro de la esfera actual</td>
+                </tr>
+                <tr>
+                  <td><strong class="text-cyan">Botón X</strong> <span class="badge bg-secondary style="font-size:0.65rem;">ax_button</span></td>
+                  <td>Avanzar al siguiente punto (teletransporte con fade)</td>
+                </tr>
+                <tr>
+                  <td><strong class="text-cyan">Botón Y</strong> <span class="badge bg-secondary style="font-size:0.65rem;">by_button</span></td>
+                  <td>Retroceder al punto anterior (teletransporte con fade)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Right Controller Card -->
+          <div class="card-glass purple-border p-3">
+            <h4 class="text-purple font-bold mb-2 style="font-size: 1.05rem;">
+              <i class="bi bi-controller me-1"></i> Mando Derecho (RightHand)
+            </h4>
+            <table class="table table-dark table-borderless table-sm mb-0 style="font-size: 0.8rem; color: #cbd5e1;">
+              <thead>
+                <tr class="text-muted border-bottom border-secondary">
+                  <th>Control</th>
+                  <th>Función</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong class="text-white">Joystick (lateral)</strong></td>
+                  <td>Giro por saltos — <em>snap turn</em> de 45° (izq/der)</td>
+                </tr>
+                <tr>
+                  <td><strong class="text-purple">Botón A</strong> <span class="badge bg-secondary style="font-size:0.65rem;">ax_button</span></td>
+                  <td>Mostrar cartel de información del punto más cercano</td>
+                </tr>
+                <tr>
+                  <td><strong class="text-purple">Botón B</strong> <span class="badge bg-secondary style="font-size:0.65rem;">by_button</span></td>
+                  <td>Ocultar el cartel de información</td>
+                </tr>
+                <tr>
+                  <td><strong class="text-amber">Click Joystick</strong> <span class="badge bg-warning text-dark style="font-size:0.65rem;">primary_click</span></td>
+                  <td>Alternar idioma de narración (Español ↔️ Inglés)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
 
-        <div class="card-glass flex-col">
-          <div class="icon-box emerald"><i class="bi bi-soundwave"></i></div>
-          <strong style="color: var(--accent-emerald); font-size: 1.05rem;">Audio Bilingüe (ES / EN)</strong>
-          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 6px;">
-            Narraciones de voz en español e inglés sobre la fauna y flora sin obstaculizar la vista 360°.
-          </p>
-        </div>
+        <div class="flex-col" style="gap: 12px;">
+          <!-- Controller Image Card -->
+          <div class="card-glass p-2 text-center" style="background: rgba(0,0,0,0.5);">
+            <img src="assets/meta_quest_3s_controllers.png" alt="Meta Quest 3S Controllers Layout" style="width: 100%; max-height: 240px; object-fit: contain; border-radius: 8px;">
+            <span class="small text-muted mt-1 d-block"><i class="bi bi-vr me-1"></i> Mandos Touch Plus — Meta Quest 3S</span>
+          </div>
 
-        <div class="card-glass flex-col">
-          <div class="icon-box purple"><i class="bi bi-stars"></i></div>
-          <strong style="color: var(--accent-purple); font-size: 1.05rem;">Marcadores Flotantes</strong>
-          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 6px;">
-            Puntos interactivos animados que indican la dirección hacia el siguiente punto del sendero.
-          </p>
+          <!-- Resumen Visual Rápido Box -->
+          <div class="card-glass nature-border p-3">
+            <h5 class="text-emerald font-bold mb-2" style="font-size: 0.95rem;">
+              ⚡ Resumen Visual Rápido de la Presentación:
+            </h5>
+            <div class="grid-2col gap-2" style="font-size: 0.8rem; font-family: var(--font-code);">
+              <div class="p-2 rounded" style="background: rgba(0,242,254,0.06); border: 1px solid rgba(0,242,254,0.2);">
+                <strong class="text-cyan d-block mb-1">🎮 IZQUIERDA:</strong>
+                <div>• Joystick ➔ Caminar / Mover</div>
+                <div>• Botón X ➔ Avanzar punto</div>
+                <div>• Botón Y ➔ Retroceder punto</div>
+              </div>
+              <div class="p-2 rounded" style="background: rgba(168,85,247,0.06); border: 1px solid rgba(168,85,247,0.2);">
+                <strong class="text-purple d-block mb-1">🎮 DERECHA:</strong>
+                <div>• Joystick ➔ Snap turn 45°</div>
+                <div>• Botón A / B ➔ Mostrar / Ocultar info</div>
+                <div>• Click Stick ➔ Idioma (ES/EN)</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     `
@@ -505,8 +577,8 @@ const SLIDES_DATA = [
     category: "Módulo 3: Arquitectura Técnica VR",
     title: "Modo Escritorio para Pruebas",
     subtitle: "Desarrolla y escucha los audios desde una computadora tradicional",
-    audioES: "El modo escritorio permite navegar el entorno 360° con el mouse y probar la narración en ambos idiomas sin ponerse las gafas.",
-    audioEN: "Desktop mode allows exploring the 360 environment with the mouse and testing bilingual audio without wearing the headset.",
+    audioES: "El modo escritorio permite navegar el entorno 360° con el mouse y probar la narración en ambos idiomas sin ponerse las gafas Meta Quest 3S.",
+    audioEN: "Desktop mode allows exploring the 360 environment with the mouse and testing bilingual audio without wearing Meta Quest 3S headsets.",
     speakerNotes: "Modo Escritorio: permite probar visualmente la cámara orbital y la reproducción de audios desde cualquier PC.",
     bodyHTML: `
       <div class="grid-2col">
@@ -555,8 +627,8 @@ const SLIDES_DATA = [
     category: "Módulo 4: Estado Actual y Futuro",
     title: "Estado del Proyecto y Roadmap",
     subtitle: "Avances actuales y plan de locuciones bilingües",
-    audioES: "El prototipo actual ya integra la visualización 360° en Meta Quest y el soporte para audios narrados en español e inglés.",
-    audioEN: "The current prototype already integrates 360 visualization on Meta Quest and support for narrated audio in Spanish and English.",
+    audioES: "El prototipo actual ya integra la visualización 360° en Meta Quest 3S y la asignación completa de botones Touch Plus.",
+    audioEN: "The current prototype integrates 360 visualization on Meta Quest 3S and full Touch Plus controller mapping.",
     speakerNotes: "Estado del MVP actual e hitos futuros incorporando las locuciones bilingües completas.",
     bodyHTML: `
       <div class="grid-2col">
@@ -566,9 +638,9 @@ const SLIDES_DATA = [
           </h3>
           <ul class="feature-list" style="margin-top: 8px;">
             <li><span class="feature-bullet"><i class="bi bi-check"></i></span> Visualización Esférica 360° funcional.</li>
-            <li><span class="feature-bullet"><i class="bi bi-check"></i></span> Inicialización nativa OpenXR en Meta Quest.</li>
+            <li><span class="feature-bullet"><i class="bi bi-check"></i></span> Inicialización nativa OpenXR en Meta Quest 3S.</li>
+            <li><span class="feature-bullet"><i class="bi bi-check"></i></span> Mapa de mandos Touch Plus (X, Y, A, B, Stick Click).</li>
             <li><span class="feature-bullet"><i class="bi bi-check"></i></span> Audio guías bilingües (Español e Inglés).</li>
-            <li><span class="feature-bullet"><i class="bi bi-check"></i></span> Snap turning 45° e interacción con mandos.</li>
             <li><span class="feature-bullet"><i class="bi bi-check"></i></span> Modo Escritorio y ejecutable <code>Metaquest.apk</code>.</li>
           </ul>
         </div>
@@ -593,10 +665,10 @@ const SLIDES_DATA = [
     id: 13,
     category: "Módulo 4: Estado Actual y Futuro",
     title: "¿Cómo se Instala y Ejecuta?",
-    subtitle: "Guía rápida para probar en PC o en las gafas Meta Quest",
-    audioES: "Puedes probar la aplicación en Godot 4.7 o instalar la aplicación APK compilada en las gafas Meta Quest mediante ADB.",
-    audioEN: "You can test the app in Godot 4.7 or install the compiled APK file onto Meta Quest headsets via ADB.",
-    speakerNotes: "Instrucciones sencillas de instalación y despliegue del APK en Meta Quest.",
+    subtitle: "Guía rápida para probar en PC o en las gafas Meta Quest 3S",
+    audioES: "Puedes probar la aplicación en Godot 4.7 o instalar la aplicación APK compilada en las gafas Meta Quest 3S mediante ADB.",
+    audioEN: "You can test the app in Godot 4.7 or install the compiled APK file onto Meta Quest 3S headsets via ADB.",
+    speakerNotes: "Instrucciones sencillas de instalación y despliegue del APK en Meta Quest 3S.",
     bodyHTML: `
       <div class="grid-2col">
         <div class="card-glass flex-col">
@@ -612,7 +684,7 @@ const SLIDES_DATA = [
 
         <div class="card-glass flex-col">
           <h4 style="color: var(--accent-purple); font-family: var(--font-heading); font-size: 1.1rem;">
-            <i class="bi bi-vr me-1"></i> Opción B: Instalar en Meta Quest (APK)
+            <i class="bi bi-vr me-1"></i> Opción B: Instalar en Meta Quest 3S (APK)
           </h4>
           <ol style="font-size: 0.88rem; color: var(--text-muted); margin-left: 18px; line-height: 1.6;">
             <li>Activa el <em>Developer Mode</em> en la app Meta Quest.</li>
@@ -632,7 +704,7 @@ const SLIDES_DATA = [
     id: 14,
     category: "Módulo 4: Evaluación Interactiva",
     title: "Trivia Interactiva de Aprendizaje",
-    subtitle: "¡Pon a prueba lo aprendido sobre el proyecto y Godot!",
+    subtitle: "¡Pon a prueba lo aprendido sobre los mandos Quest 3S y Godot!",
     audioES: "Responde este cuestionario interactivo para poner a prueba tus conocimientos sobre la Ciénaga de Mallorquín y el proyecto.",
     audioEN: "Answer this interactive quiz to test your knowledge about Cienaga de Mallorquin and the project.",
     speakerNotes: "Evaluación interactiva para consolidar lo aprendido en la presentación.",
