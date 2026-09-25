@@ -49,14 +49,25 @@ class Viewer360 {
     geometry.scale(-1, 1, 1);
 
     const textureLoader = new THREE.TextureLoader();
-    const texture = textureLoader.load(this.imagePath, () => {
-      this.renderer.render(this.scene, this.camera);
-    });
-    texture.colorSpace = THREE.SRGBColorSpace;
+    
+    const applyTexture = (texture) => {
+      texture.colorSpace = THREE.SRGBColorSpace;
+      const material = new THREE.MeshBasicMaterial({ map: texture });
+      this.sphere = new THREE.Mesh(geometry, material);
+      this.scene.add(this.sphere);
+      if (this.renderer) this.renderer.render(this.scene, this.camera);
+    };
 
-    const material = new THREE.MeshBasicMaterial({ map: texture });
-    this.sphere = new THREE.Mesh(geometry, material);
-    this.scene.add(this.sphere);
+    textureLoader.load(
+      this.imagePath,
+      (texture) => applyTexture(texture),
+      undefined,
+      (err) => {
+        console.warn("Error loading 360 texture from " + this.imagePath + ", trying fallback...");
+        const fallbackPath = this.imagePath.includes("slides/") ? this.imagePath.replace("slides/", "") : "slides/" + this.imagePath;
+        textureLoader.load(fallbackPath, (fallbackTex) => applyTexture(fallbackTex));
+      }
+    );
 
     // Renderer
     this.renderer = new THREE.WebGLRenderer({ canvas: this.canvas, antialias: true });
@@ -120,7 +131,9 @@ class Viewer360 {
     const z = 500 * Math.sin(this.phi) * Math.sin(this.theta);
 
     this.camera.lookAt(x, y, z);
-    this.renderer.render(this.scene, this.camera);
+    if (this.renderer && this.scene) {
+      this.renderer.render(this.scene, this.camera);
+    }
   }
 
   destroy() {

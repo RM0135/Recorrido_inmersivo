@@ -158,7 +158,9 @@ class SlidesApp {
     if (slide.id === 8) {
       setTimeout(() => {
         if (!this.viewer360Instance && window.Viewer360) {
-          this.viewer360Instance = new Viewer360("viewer360-canvas", "assets/P001.png");
+          // Check if running from root or slides/ subfolder
+          const texturePath = window.location.pathname.endsWith("/slides/") || window.location.pathname.endsWith("/slides/index.html") ? "assets/P001.png" : "slides/assets/P001.png";
+          this.viewer360Instance = new Viewer360("viewer360-canvas", texturePath);
         }
         if (this.viewer360Instance) {
           this.viewer360Instance.init();
